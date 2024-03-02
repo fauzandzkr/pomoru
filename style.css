@@ -1,0 +1,775 @@
+*{
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body.active-popup::before {
+    content: "";
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+} 
+@media only screen and (max-width: 600px){
+    body{
+        background-image: url('assets/img/background-mobile-1.png');
+        background-position: center top;
+        background-repeat: no-repeat;
+        width: 100%;
+        /* height: 100vh; */
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4vh 5%;
+        /* background-color: rgb(41, 18, 143); */
+    }
+
+    .header-img{
+        width: 25vw;
+        /* height: vw; */
+        /* background-color: aqua; */
+    }
+
+    .header-setAcc{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-setAcc-setting{
+        width: 6vw;
+    }
+
+    .header-setAcc-button{
+        width: 25vw;
+        padding: 1.7vw 0vw;
+        /* height: 2vw; */
+        font-size: 4vw;
+        border: 1px solid #fff;
+        margin-left: 4vw;
+        border-radius: 15px;
+        background-color: #ffffff;
+        color: #202329;
+        font-weight: 600;
+        transition: all 0.2s;
+        z-index: 9; 
+    }
+
+    .header-setAcc-button:hover{
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+
+    .overlay-span-login,
+    .overlay-span-signup{
+        position: fixed;
+        height: 100vh;   
+        width: 100%;
+        left: 50%;
+        top: 50%;  
+        transform: translate(-50%, -50%);
+        /* display: none; */
+    }
+
+    .overlay-span-login.active-spanSignIn,
+    .overlay-span-signup.active-spanSignUp{
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .overlay-section-login,
+    .overlay-section-signup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 80%;
+        display: none;
+        opacity: 0;
+        left: 50%;
+        top: 50%;  
+        transform: translate(-50%, -50%);
+        /* background-color: aqua; */
+    }
+
+    .overlay-div-login,
+    .overlay-div-signup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60vh;
+        background-color: #fff;
+        border-radius: 15px;
+        /* background-color: chartreuse; */
+    }
+
+    .overlay-div-login img,
+    .overlay-div-signup img{
+        display: block;
+        margin: 2vh auto 2.5vh auto;
+        width: 30vw;
+    }
+
+    .overlay-div-login h2,
+    .overlay-div-signup h2{
+        text-align: center;
+        font-size: 6vw;
+        font-weight: 500;
+    }
+
+    .overlay-div-login p,
+    .overlay-div-signup p{
+        font-size: 3.5vw;
+        display: block;
+        margin: 0vh auto 2vh auto;
+        text-align: center;
+        width: 70%;
+    }
+
+    .overlay-div-login .login-form,
+    .overlay-div-signup .signup-form{
+        width: 120%;
+        display: flex;
+        justify-content: center;
+        /* background-color: #202329; */
+    }
+
+    .login-form .login-form-container,
+    .signup-form .signup-form-container{
+        width: 60%;
+    }
+
+    .login-form-container .login-input,
+    .signup-form-container .signup-input{
+        margin: 1vw 0;
+    }
+
+    .login-input label,
+    .signup-input label{
+        display: block;
+        font-weight: bold;
+        font-size: 4vw;
+    }
+
+    .login-input input,
+    .signup-input input{
+        display: block;
+        width:100%;
+        border: none;
+        background-color: #F5F7FA;
+        padding: 2.5vw 3vw;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 4vw;
+    }
+
+    .login-form-container .remember-forget{
+        display: flex;
+        justify-content: space-between;
+        margin: 2vh 0 0vh 0;
+    }
+
+    .remember-forget .remember{
+        display: flex;
+    }
+
+    .remember-forget .remember label{
+        display: flex;
+        align-items: center;
+        font-size: 3.2vw;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+
+    .remember-forget a{
+        font-size: 3.2vw;
+        text-decoration: none;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .login-form-container button,
+    .signup-form-container button{
+        width: 100%;
+        padding: 2vw 0;
+        background-color: #202329;
+        border: 1px solid #202329;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 4vw;
+        margin: 3vw 0 ;
+    }
+
+    .login-form-container button:hover,
+    .signup-form-container button:hover{
+        background-color: #fff;
+        color: #202329;
+        border: 1px solid #202329;
+    }
+
+    .login-form-container p,
+    .signup-form-container p{
+        width: 100%;
+        font-size: 3.5vw;
+        /* margin-top: 2vh; */
+        /* background-color: aqua; */
+    }
+
+    .login-form-container a,
+    .signup-form-container a{
+        font-weight: 600;
+    }
+    .login-form-container a:hover,
+    .signup-form-container a:hover{
+        color: #5a5a5a;
+    }
+
+
+    .overlay-section-login.active{
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 12;
+    }
+
+    .overlay-section-signup.active{
+        display: block;
+        z-index: 11;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .back-signIn,
+    .do-signup{
+        cursor:pointer;
+    }
+
+
+
+
+
+
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 600px;
+        /* background-color: rgb(223, 142, 36); */
+    }
+    .main .container-timer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 40%;
+        /* background-color: rgb(44, 57, 235); */
+    }
+    .main .container-timer .session p{
+        color: #fff;
+    }
+    .main .container-timer .timer-display h1{
+        color: #fff;
+        font-size: 20vw;
+        margin-bottom: 1vh;
+    }
+
+    .main .container-timer .buttons{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        z-index: 15;
+        /* background-color: rgb(41, 155, 255); */
+    }
+    .btn-start-pause{
+        background-color: rgb(255, 0, 0);
+        position: relative;
+    }
+    .btn-start-pause .btn-start{
+        position: absolute;
+    }
+    .btn-start-pause .btn-pause{
+        display: none;
+        position: absolute;
+        left: 0;
+    }
+    .btn-pause.active-pause{
+        display: block;
+    }
+    .btn-start.active-start{
+        display: none;
+    }
+
+    .btn-start,
+    .btn-reset {
+        width: 25vw;
+        padding: 1.7vw 0vw;
+        font-size: 4vw;
+        border: 1px solid #fff;
+        /* margin-left: 4vw; */
+        border-radius: 15px;
+        background-color: #ffffff;
+        color: #202329;
+        font-weight: 600;
+        transition: all 0.2s;
+
+    }
+    .btn-pause{
+        width: 25vw;
+        padding: 1.7vw 0vw;
+        font-size: 4vw;
+        border: 1px solid #fff;
+        /* margin-left: 4vw; */
+        border-radius: 15px;
+        background-color: transparent;
+        color: #ffffff;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+    .btn-reset:hover{
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+
+
+
+    .main .container-task{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 60%;
+        /* margin-top: 30px; */
+        border-radius: 15px;
+        /* background-color: rgb(250, 119, 119); */
+        
+        background-image: repeating-linear-gradient(155deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px), repeating-linear-gradient(245deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px), repeating-linear-gradient(-25deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px), repeating-linear-gradient(65deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px);
+        background-size: 3px calc(100% + 54.07px), calc(100% + 54.07px) 3px, 3px calc(100% + 54.07px) , calc(100% + 54.07px) 3px;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        background-repeat: no-repeat;
+        animation: borderAnimation 10s infinite linear reverse;
+    }
+    @keyframes borderAnimation {
+        from { background-position: 0 0, -54.07px 0, 100% -54.07px, 0 100%; }
+        to { background-position: 0 -54.07px, 0 0, 100% 0, -54.07px 100%; }
+    }
+    .container-task .empty-task{
+        color: #fff;
+        text-align: center;
+    }
+    .container-task .empty-task p{
+        margin: 1vh auto 3vh auto;
+        align-items: center;
+        width: 60%;
+    }
+    .container-task .add-task{
+        width: 25vw;
+        padding: 1.7vw 0vw;
+        font-size: 4vw;
+        border: 1px solid #fff;
+        /* margin-left: 4vw; */
+        border-radius: 15px;
+        background-color: #ffffff;
+        color: #202329;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+    .container-task .add-task:hover{
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+}
+
+@media only screen and (min-width: 992px){
+    body{
+        background-image: url('assets/img/background1.png') ;
+        /* // background-color: #202329 ; */
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+    }
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10vh 5%;
+        /* background-color: antiquewhite; */
+    }
+
+    .header-img{
+        width: 10vw;
+        height: 3vw;
+        /* background-color: aqua; */
+    }
+
+    .header-setAcc{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-setAcc-setting{
+        width: 2vw;
+    }
+
+    .header-setAcc-button{
+        width: 7vw;
+        padding: 0.5vw;
+        /* height: 2vw; */
+        font-size: 1.2vw;
+        border: 1px solid #fff;
+        margin-left: 2.5vw;
+        border-radius: 20px;
+        background-color: #ffffff;
+        color: #202329;
+        font-weight: 600;
+        transition: all 0.2s;
+        z-index: 9; 
+    }
+
+    .header-setAcc-button:hover{
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+
+
+    .overlay-span-login,
+    .overlay-span-signup{
+        position: fixed;
+        height: 100vh;   
+        width: 100%;
+        left: 50%;
+        top: 50%;  
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+    
+    .overlay-span-login.active-spanSignIn,
+    .overlay-span-signup.active-spanSignUp{
+        display: block;
+        z-index: 10;
+        background-color: rgba(212, 21, 21, 0.6);
+    }
+
+    .overlay-section-login,
+    .overlay-section-signup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        width: 30%;
+        display: none;
+        opacity: 0;
+        left: 50%;
+        top: 50%;  
+        transform: translate(-50%, -50%);
+        /* background-color: aqua; */
+    }
+
+    .overlay-div-login,
+    .overlay-div-signup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+        background-color: #fff;
+        border-radius: 15px;
+        /* background-color: chartreuse; */
+    }
+
+    .overlay-div-login img,
+    .overlay-div-signup img{
+        display: block;
+        margin: 0vh auto 5vh auto;
+        width: 8vw;
+    }
+
+    .overlay-div-login h2,
+    .overlay-div-signup h2{
+        text-align: center;
+        font-size: 2vw;
+        font-weight: 500;
+    }
+
+    .overlay-div-login p,
+    .overlay-div-signup p{
+        font-size: 1vw;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        width: 60%;
+    }
+
+    .overlay-div-login .login-form,
+    .overlay-div-signup .signup-form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-form .login-form-container,
+    .signup-form .signup-form-container{
+        width: 60%;
+    }
+
+    .login-form-container .login-input,
+    .signup-form-container .signup-input{
+        margin: 1vw 0;
+    }
+
+    .login-input label,
+    .signup-input label{
+        display: block;
+        font-weight: bold;
+        font-size: 1.2vw;
+    }
+
+    .login-input input,
+    .signup-input input{
+        display: block;
+        width:100%;
+        border: none;
+        background-color: #F5F7FA;
+        padding: 0.7vw 1vw;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 1.2vw;
+    }
+
+    .login-form-container .remember-forget{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .remember-forget .remember{
+        display: flex;
+    }
+
+    .remember-forget .remember label{
+        display: flex;
+        align-items: center;
+        font-size: 1vw;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+
+    .remember-forget a{
+        font-size: 1vw;
+        text-decoration: none;
+        color: #000;
+        font-weight: 600;
+    }
+
+    .login-form-container button,
+    .signup-form-container button{
+        width: 100%;
+        padding: 0.7vw 0;
+        background-color: #202329;
+        border: 1px solid #202329;
+        border-radius: 15px;
+        color: #fff;
+        font-size: 1.2vw;
+        margin: 1vw 0 ;
+    }
+
+    .login-form-container button:hover,
+    .signup-form-container button:hover{
+        background-color: #fff;
+        color: #202329;
+        border: 1px solid #202329;
+    }
+
+    .login-form-container p,
+    .signup-form-container p{
+        width: 100%;
+        font-size: 1vw;
+    }
+
+    .login-form-container a,
+    .signup-form-container a{
+        font-weight: 600;
+    }
+    .login-form-container a:hover,
+    .signup-form-container a:hover{
+        color: #5a5a5a;
+    }
+
+
+    .overlay-section-login.active{
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 12;
+    }
+
+    .overlay-section-signup.active{
+        display: block;
+        z-index: 11;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .back-signIn,
+    .do-signup{
+        cursor:pointer;
+    }
+
+
+
+
+
+
+
+    .main{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 400px;
+        /* background-color: antiquewhite; */
+    }
+    .main .container-timer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        /* background-color: rgb(44, 57, 235); */
+    }
+    .main .container-timer .session p{
+        color: #fff;
+    }
+    .main .container-timer .timer-display h1{
+        color: #fff;
+        font-size: 7vw;
+        margin-bottom: 2vh;
+    }
+
+    .main .container-timer .buttons{
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        /* background-color: rgb(41, 155, 255); */
+    }
+    .btn-start-pause{
+        background-color: rgb(255, 0, 0);
+        position: relative;
+    }
+    .btn-start-pause .btn-start{
+        position: absolute;
+    }
+    .btn-start-pause .btn-pause{
+        display: none;
+        position: absolute;
+        left: 0;
+    }
+    .btn-pause.active-pause{
+        display: block;
+    }
+    .btn-start.active-start{
+        display: none;
+    }
+
+    .btn-start,
+    .btn-reset {
+        width: 7vw;
+        padding: 0.5vw;
+        font-size: 1.2vw;
+        border: 1px solid #ffffff;
+        border-radius: 20px;
+        background-color: #ffffff;
+        color: #202329;
+        font-weight: 600;
+        transition: all 0.2s;
+        /* z-index: 14000;  */
+    }
+    .btn-pause{
+        width: 7vw;
+        padding: 0.5vw;
+        font-size: 1.2vw;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        background-color: transparent;
+        color: #ffffff;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+    .btn-reset:hover{
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+
+
+
+    .main .container-task{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        border-radius: 15px;
+        margin-left: 50px;
+        /* background-color: rgb(250, 119, 119); */
+        
+        background-image: repeating-linear-gradient(155deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px), repeating-linear-gradient(245deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px), repeating-linear-gradient(-25deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px), repeating-linear-gradient(65deg, #ffffff, #ffffff 26px, transparent 26px, transparent 49px, #ffffff 49px);
+        background-size: 3px calc(100% + 54.07px), calc(100% + 54.07px) 3px, 3px calc(100% + 54.07px) , calc(100% + 54.07px) 3px;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        background-repeat: no-repeat;
+        animation: borderAnimation 10s infinite linear reverse;
+    }
+    @keyframes borderAnimation {
+        from { background-position: 0 0, -54.07px 0, 100% -54.07px, 0 100%; }
+        to { background-position: 0 -54.07px, 0 0, 100% 0, -54.07px 100%; }
+    }
+    .container-task .empty-task{
+        color: #fff;
+        text-align: center;
+    }
+    .container-task .empty-task p{
+        margin: 1vh auto 3vh auto;
+        align-items: center;
+        width: 60%;
+    }
+    .container-task .add-task{
+        width: 7vw;
+        padding: 0.5vw;
+        font-size: 1.2vw;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        background-color: #ffffff;
+        color: #202329;
+        font-weight: 600;
+        transition: all 0.2s;
+        z-index: 9; 
+    }
+    .container-task .add-task:hover{
+        border: 1px solid #fff;
+        background-color: transparent;
+        color: #ffffff;
+    }
+}
+
+
